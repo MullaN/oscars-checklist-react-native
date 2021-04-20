@@ -11,10 +11,11 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     headerView: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10
     },
     headerText: {
-        fontSize: 30,
+        fontSize: 40,
         color: 'rgb(155, 144, 96)'
     }
 });
