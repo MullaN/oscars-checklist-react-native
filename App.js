@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native'
+import Countdown from './Components/Countdown';
 import Header from './Components/Header'
 
 const App = () => {
   return (
     <View style={styles.appView}>
       <Header />
+      <Countdown />
     </View>
   );
 };
