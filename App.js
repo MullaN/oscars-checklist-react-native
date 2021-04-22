@@ -10,15 +10,23 @@ const App = () => {
   useEffect(() => {
     fetch('https://oscars-checklist-backend.herokuapp.com/api/movies')
     .then(resp => resp.json())
-    .then(moviesData => setMovies(moviesData))
+    .then(moviesData => {
+      let sortedMovies = moviesData.sort((a,b) => {
+        let editedA = a.title.replace('The ','')
+        let editedB = b.title.replace('The ','')
+        if(editedA < editedB) { return -1; }
+        if(editedA > editedB) { return 1; }
+        return 0;
+    })
+      setMovies(sortedMovies)
+    })
   },[]);
 
   return (
     <View style={styles.appView}>
       <Header />
       <Countdown />
-      {movies.map(movie => <Movie movie={movie} key={movie.id}/>)}
-      {/* <FlatList data={movies} renderItem={({item}) => <Movie movie={item} />} style={styles.movieFlatList}/> */}
+      <FlatList data={movies} renderItem={({item}) => <Movie movie={item} />} style={styles.movieFlatList}/>
     </View>
   );
 };

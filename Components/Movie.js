@@ -10,7 +10,9 @@ const Movie = ({movie}) => {
         <>
             <View style={styles.movieView}>
                 <CheckBox onPress={(event) => event.stopPropagation()} boxType='square'/>
-                <Text style={styles.movieText} onPress={() => setClicked(!clicked)}>{movie ? movie.title : 'undef'}</Text>
+                <TouchableOpacity onPress={() => setClicked(!clicked)}>
+                <Text style={styles.movieText}>{movie ? movie.title : 'undef'}</Text>
+                </TouchableOpacity>
             </View>
             {clicked ? <Nominations nominations={movie.nominations} /> : <></>}
         </>
@@ -20,10 +22,9 @@ const Movie = ({movie}) => {
 const styles = StyleSheet.create({
     movieView:{
         flexDirection: 'row',
-        height: 50,
-        marginTop: 10,
-        marginBottom: 10,
-        paddingLeft: 10
+        alignItems: 'center',
+        padding: 10,
+        width: 360
     },
     movieText: {
         paddingLeft: 20,
