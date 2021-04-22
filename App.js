@@ -17,7 +17,8 @@ const App = () => {
     <View style={styles.appView}>
       <Header />
       <Countdown />
-      <FlatList data={movies} renderItem={({item}) => <Movie movie={item} />} style={styles.movieFlatList}/>
+      {movies.map(movie => <Movie movie={movie} key={movie.id}/>)}
+      {/* <FlatList data={movies} renderItem={({item}) => <Movie movie={item} />} style={styles.movieFlatList}/> */}
     </View>
   );
 };
