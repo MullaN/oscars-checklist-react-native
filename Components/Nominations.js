@@ -4,7 +4,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 const Nominations = ({ nominations }) => {
     return (
         <View>
-            <FlatList data={nominations} renderItem={({item}) => <Nom nomination={item} /> }/>
+            <FlatList data={nominations} renderItem={({item}) => <Nom nomination={item} key={item.category + '-' + item.people}/> }/>
         </View>
     );
 };
